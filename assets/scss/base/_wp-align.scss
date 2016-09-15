@@ -1,0 +1,51 @@
+// minimal styling to properly align images and captions
+.wp-caption {
+    max-width: 100%;
+
+    &.aligncenter {
+        width: auto !important;
+    }
+
+    img[class*="wp-image-"] {
+        display: block;
+    }
+}
+
+.wp-caption-text {
+    text-align: center;
+}
+
+/**
+ * overqualified selectors for gallery caption
+ * to overwrite editor style
+ */
+.wp-caption-text.wp-caption-text.wp-caption-text,
+.gallery-caption.gallery-caption.gallery-caption {
+}
+
+figure {
+    &.aligncenter,
+    &.alignnone {
+
+    }
+
+    &.aligncenter img {
+        margin: 0 auto;
+    }
+
+    &.alignleft {
+        float: left;
+    }
+
+    &.alignright {
+        float: right;
+    }
+}
+
+figure {
+    max-width: 100%;
+
+    img {
+        display: block;
+    }
+}

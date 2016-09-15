@@ -1,0 +1,33 @@
+$baseline-unit:         14px;
+// $baseline-grid: true;
+
+// https://css-tricks.com/handling-z-index/
+$zindex: (
+    modal:      9000,
+    dropdown:   8000,
+    header:     7000,
+    overlay:    6000,
+    footer:     5000
+);
+
+// mobile first means we need min-width media queries
+$breakpoints: (
+    small:      35em,
+    lap:        50em,
+    desk:       80em
+);
+
+
+// typography settings
+$font-size:             16px;
+$line-height:           1.5;
+$default-spacing:       24px;
+
+// colors
+$dark:                  #252525;
+$gray:                  #757575;
+$light:                 #EBEBEB;
+
+// misc
+$transition--micro:     .15s;
+$transition--macro:     .3s;

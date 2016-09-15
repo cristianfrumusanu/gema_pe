@@ -1,0 +1,67 @@
+$font-size:             16px            !default;
+$line-height:           1.5             !default;
+
+$font-family-body:      sans-serif      !default;
+$font-family-headings:  sans-serif      !default;
+
+$editor-style:          false           !default;
+
+%font-family-body {
+    font-family: $font-family-body;
+}
+
+%font-headings {
+    font-family: $font-family-headings;
+}
+
+html {
+    @extend %font-family-body;
+    font-size: percentage($font-size/16px);
+    line-height: $line-height;
+}
+
+ul,
+ol,
+dl {
+
+}
+
+b,
+strong {
+    font-weight: 400;
+}
+
+em,
+i,
+small {
+    font-style: italic;
+}
+
+@mixin render-typography-styles() {
+    h1          { @extend %h1           !optional; }
+    h2          { @extend %h2           !optional; }
+    h3          { @extend %h3           !optional; }
+    h4          { @extend %h4           !optional; }
+    h5          { @extend %h5           !optional; }
+    h6          { @extend %h6           !optional; }
+
+    p           { @extend %p            !optional; }
+
+    a           { @extend %hyperlink    !optional; }
+
+    blockquote  { @extend %blockquote   !optional; }
+    pre         { @extend %pre          !optional; }
+    table       { @extend %table        !optional; }
+
+    dl          { @extend %dl           !optional; }
+    ul          { @extend %ul           !optional; }
+    ol          { @extend %ol           !optional; }
+}
+
+// @if $editor-style == false {
+//     %content {
+//         @include render-typography-styles();
+//     }
+// } @else {
+    @include render-typography-styles();
+// }

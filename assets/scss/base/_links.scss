@@ -1,0 +1,17 @@
+$link-color:    #F00    !default;
+
+%link {
+    color: $link-color;
+
+    &:active {
+
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+
+    }
+}

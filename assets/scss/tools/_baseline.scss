@@ -1,0 +1,44 @@
+$baseline-unit:         12px            !default;
+$baseline-grid:         false           !default;
+$baseline-grid-color:   rgba(0,0,0,0.1) !default;
+
+@if $baseline-grid == true {
+    html {
+        height: 100%;
+        background-image: linear-gradient(0deg, transparent 0%, transparent calc(100% - 1px), rgba(0,0,0,0.1) calc(100% - 1px), rgba(0,0,0,0.1) 100%);
+        background-size: $baseline-unit $baseline-unit;
+    }
+}
+
+@mixin baseline($baseline-font-size: 16px, $units: 3, $cap-height-ratio: 0.68) {
+
+    // number of rhythm units that can fit the font-size
+    $lines: ceil(($baseline-font-size + 0.001px) / $baseline-unit);
+
+    // calculate the new line-height
+    $line-height: $baseline-unit * $lines / $baseline-font-size;
+    $baseline-distance: ($line-height - $cap-height-ratio) / 2;
+
+    // set the proper font-size and line-height to size the element in multiples of baseline units
+    font-size: $baseline-font-size;
+    line-height: $line-height;
+
+    margin-top: - $baseline-distance * $baseline-font-size;
+    margin-bottom: $baseline-unit * $units - $baseline-distance * $baseline-font-size;
+
+    position: relative;
+
+    &:after {
+        content: "";
+
+        position: absolute;
+        top: calc(100% - #{$baseline-distance * $baseline-font-size});
+        left: 0;
+        z-index: -1;
+
+        width: 100%;
+        height: $baseline-unit * $units;
+
+        background: #3CEBCA;
+    }
+}

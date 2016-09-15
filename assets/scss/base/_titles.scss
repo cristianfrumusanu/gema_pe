@@ -1,0 +1,45 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-size: 1.125em;
+}
+
+$cap-height: 0.72;
+
+.h1,
+%h1 {
+    @include baseline(60px, 3, $cap-height);
+}
+
+.h2,
+%h2 {
+    @include baseline(24px, 3, $cap-height);
+}
+
+.h3,
+%h3 {
+    @include baseline(16px, 2, $cap-height);
+}
+
+.h4,
+%h4 {
+    @include baseline(13px, 2, $cap-height);
+}
+
+.h5,
+%h5 {
+    @include baseline(13px, 2, $cap-height);
+}
+
+.h6,
+%h6 {
+
+}
+
+div {
+    padding: 100px;
+}

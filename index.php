@@ -18,7 +18,7 @@ get_header(); ?>
 	// If we have posts display the masonry archive
 	if ( have_posts() ) :?>
 	<div id="primary" class="content-area">
-		<main id="main" role="main">
+		<main id="main">
 			<div class="grid">
 				<div class="header grid__item">
 					<?php get_template_part( 'template-parts/content', 'header' ); ?>

@@ -12,7 +12,7 @@
 <?php get_template_part('template-parts/content', 'header'); ?>
 
 <div id="primary" class="content-area  content--not-found">
-	<main id="main" class="site-main" role="main">
+	<main id="main" class="site-main">
 		<div class="post__content">
 			<div class="entry-content">
 				<h1 class="page-title"><?php _e( 'Nothing Found', 'gema' ); ?></h1>

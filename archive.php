@@ -19,7 +19,7 @@ get_header();
 if ( have_posts() ) :?>
 
 	<div id="primary" class="content-area">
-		<main id="main" role="main">
+		<main id="main">
 			<div class="grid">
 				<div class="header grid__item">
 

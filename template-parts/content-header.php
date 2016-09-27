@@ -9,7 +9,7 @@
 
 ?>
 
-<header id="masthead" class="site-header" role="banner">
+<header id="masthead" class="site-header">
 	<div class="site-branding">
 
 		<?php gema_the_custom_logo(); ?>
@@ -34,7 +34,7 @@
 
 	</div><!-- .site-branding -->
 
-	<nav id="site-navigation" class="main-navigation" role="navigation">
+	<nav id="site-navigation" class="main-navigation">
 		<button class="overlay-toggle  menu-toggle  menu-close" aria-expanded="false">
 			<span class="screen-reader-text"><?php esc_html_e( 'Close Primary Menu', 'gema' ); ?></span>
 		</button>

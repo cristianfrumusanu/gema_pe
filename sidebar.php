@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area" role="complementary">
+<aside id="secondary" class="widget-area">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	<button class="overlay-toggle  sidebar-toggle  right-close-button" aria-expanded="false">
 		<span class="screen-reader-text"><?php esc_html_e( 'Close Sidebar', 'gema' ); ?></span>

@@ -308,7 +308,7 @@ if ( ! function_exists( 'gema_the_image_navigation' ) ) :
 
 		if ( $post->post_parent ) : ?>
 
-		<nav class="navigation post-navigation" role="navigation">
+		<nav class="navigation post-navigation">
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Image navigation', 'gema' ); ?></h2>
 			<div class="nav-links">
 				<div class="nav-previous">

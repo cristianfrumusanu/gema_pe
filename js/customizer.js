@@ -1,5 +1,5 @@
 /**
- * File customizer.js.
+ * customizer.js
  *
  * Theme Customizer enhancements for a better user experience.
  *
@@ -8,35 +8,26 @@
 
 ( function( $ ) {
 
-	// Site title and description.
+	// Change site title and description when they are typed
 	wp.customize( 'blogname', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-title a' ).text( to );
-		} );
-	} );
-	wp.customize( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
-			$( '.site-description' ).text( to );
+		value.bind( function( text ) {
+			$( '.site-title a span, .site-title text' ).text( text );
+			Logo.init();
 		} );
 	} );
 
-	// Header text color.
-	wp.customize( 'header_textcolor', function( value ) {
-		value.bind( function( to ) {
-			if ( 'blank' === to ) {
-				$( '.site-title a, .site-description' ).css( {
-					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
-				} );
-			} else {
-				$( '.site-title a, .site-description' ).css( {
-					'clip': 'auto',
-					'position': 'relative'
-				} );
-				$( '.site-title a, .site-description' ).css( {
-					'color': to
-				} );
-			}
+	wp.customize( 'blogdescription', function( value ) {
+		value.bind( function( text ) {
+			$( '.site-description' ).text( text );
 		} );
 	} );
+
+	wp.customize( 'jetpack_fonts[selected_fonts]', function( value ) {
+		value.bind( function( to ) {
+			setTimeout(function() {
+				Logo.onResize();
+			}, 1);
+		} );
+	} );
+
 } )( jQuery );

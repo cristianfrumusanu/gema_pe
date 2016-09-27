@@ -1,0 +1,107 @@
+.mobile-header-wrapper {
+	display: flex;
+	height: $header-height-mobile;
+	border-bottom: 1px solid $borders;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	background: white;
+	overflow: hidden;
+
+	.mobile-logo .site-branding {
+		opacity: 0;
+    	margin-left: auto;
+    	margin-right: auto;
+    	max-width: 100%;
+	}
+
+	.site-title {
+		margin: 0;
+
+		@include query-below($lap) {
+			padding: 12px 0;
+		}
+	}
+
+	@media screen and (max-width: 782px) {
+		.admin-bar & {
+			position: absolute;
+			top: 46px;
+
+			.site-branding {
+				display: none;
+			}
+		}
+	}
+
+	.site-logo {
+		max-height: 40px;
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.admin-bar & {
+		top: 32px;
+
+		@media screen and (max-width: 782px) {
+			top: 46px;
+		}
+	}
+
+	@include query-above($lap) {
+		display: none;
+	}
+
+	& > * {
+		order: 1;
+	}
+
+	.overlay-toggle {
+		flex: 0 0 60px;
+	}
+
+	.menu-toggle {
+		order: 0;
+	}
+
+}
+
+.mobile-logo {
+	flex-grow: 1;
+	overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    .site-logo {
+    	max-height: 40px;
+    }
+
+	.custom-logo-link {
+		height: 60px;
+		padding: 10px 0;
+
+		img {
+			width: auto;
+			height: 100%;
+		}
+
+		& + .site-title {
+			display: none;
+		}
+	}
+}
+
+@include query-between($lap, $desk-big) {
+	.singular .custom-logo-link {
+		height: 60px;
+		padding: 10px 0;
+
+		img {
+			width: auto;
+			height: 100%;
+		}
+	}
+}

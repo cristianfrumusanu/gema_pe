@@ -8,7 +8,6 @@
  *
  * @package Gema
  */
-
 ?>
 
 	</div><!-- #content -->
@@ -17,9 +16,18 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gema' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'gema' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'gema' ), 'gema', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'gema' ), 'Gema', '<a href="https://pixelgrade.com/" rel="designer">PixelGrade</a>' ); ?>
 		</div><!-- .site-info -->
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'footer',
+				'menu_id' => 'footer-menu',
+				'menu_class' => 'footer-menu',
+				'depth' => 1,
+				'container' => false
+		) ); ?>
 	</footer><!-- #colophon -->
+	<div class="overlay-shadow"></div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

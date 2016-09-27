@@ -1,67 +1,111 @@
-$font-size:             16px            !default;
-$line-height:           1.5             !default;
+// ---------------------------------------
+// Typography
+// ---------------------------------------
 
-$font-family-body:      sans-serif      !default;
-$font-family-headings:  sans-serif      !default;
+$default-font-size: 		16px 	!default;
+$default-spacing-unit: 		28px 	!default;
+$default-line-height: 		1.5 	!default;
 
-$editor-style:          false           !default;
+$color-dark:				#000	!default;
+$color-light:				#FFF	!default;
 
-%font-family-body {
-    font-family: $font-family-body;
-}
-
-%font-headings {
-    font-family: $font-family-headings;
-}
+$editor-style: 				false   !default;
 
 html {
-    @extend %font-family-body;
-    font-size: percentage($font-size/16px);
-    line-height: $line-height;
+	font-size: percentage($default-font-size / 16px);
+	line-height: $default-line-height;
+	/*overflow-x: hidden;*/
 }
 
-ul,
-ol,
-dl {
+body {
+	@extend .word-wrap;
 
+	font-family: $font-family--default;
+	font-size: percentage($default-font-size / 16px);
+	line-height: $default-line-height;
+	font-weight: 200;
+
+	background: $color-light;
+	color: $color-dark;
 }
 
-b,
-strong {
-    font-weight: 400;
+@mixin responsive-body-text($font-size) {
+	body {
+		font-size: $font-size;
+	}
 }
 
-em,
-i,
-small {
-    font-style: italic;
+@include responsive-body-text( map-get($responsive-body-text, $mobile) );
+
+// Using $responsive-body-text map to set body font-size depending on screen size;
+// font-size for $mobile is default, used above; it will be skipped in the loop;
+// "0000" is a dummy value, it means it must not taken into consideration;
+// output example: < @include query-above($lap) { @include responsive-body-text( 16px ) }; >.
+@each $breakpoint, $font-size in $responsive-body-text {
+
+	@if $breakpoint != $mobile {
+
+		@if $font-size != 0000 {
+
+			@include query-above( $breakpoint ) {
+				@include responsive-body-text( $font-size );
+			}
+
+		}
+	}
 }
 
-@mixin render-typography-styles() {
-    h1          { @extend %h1           !optional; }
-    h2          { @extend %h2           !optional; }
-    h3          { @extend %h3           !optional; }
-    h4          { @extend %h4           !optional; }
-    h5          { @extend %h5           !optional; }
-    h6          { @extend %h6           !optional; }
-
-    p           { @extend %p            !optional; }
-
-    a           { @extend %hyperlink    !optional; }
-
-    blockquote  { @extend %blockquote   !optional; }
-    pre         { @extend %pre          !optional; }
-    table       { @extend %table        !optional; }
-
-    dl          { @extend %dl           !optional; }
-    ul          { @extend %ul           !optional; }
-    ol          { @extend %ol           !optional; }
+%default-spacing {
+	margin-bottom: $default-spacing-unit;
 }
 
-// @if $editor-style == false {
-//     %content {
-//         @include render-typography-styles();
-//     }
-// } @else {
-    @include render-typography-styles();
-// }
+p {
+	@extend %default-spacing;
+}
+
+b, strong, .bold {
+	font-weight: 400;
+}
+
+em, i, small, .italic {
+	font-style: italic;
+}
+
+@if $editor-style == false {
+	.entry-content,
+	.comment__content {
+		blockquote 	{ @extend %blockquote !optional; }
+		pre 		{ @extend %pre !optional; }
+		table 		{ @extend %table !optional; }
+
+		a {
+			color: #afafaf;
+
+			&:hover,
+			&:focus {
+				color: #000000;
+			}
+		}
+	}
+} @else {
+	blockquote 	{ @extend %blockquote !optional; }
+	pre 		{ @extend %pre !optional; }
+	table 		{ @extend %table !optional; }
+
+	a {
+		color: $link-hover;
+
+		&:hover,
+		&:focus {
+			color: #000000;
+		}
+	}
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.mejs-container {
+	@extend %default-spacing;
+}

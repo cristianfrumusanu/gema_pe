@@ -1,0 +1,12 @@
+body {
+	div.sharedaddy,
+	#content div.sharedaddy,
+	#main div.sharedaddy {
+		clear: none;
+	}
+}
+
+.entry-content .sd-content li:before {
+	content: none;
+}
+

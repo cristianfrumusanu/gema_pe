@@ -1,44 +1,120 @@
 // minimal styling to properly align images and captions
 .wp-caption {
     max-width: 100%;
-
-    &.aligncenter {
-        width: auto !important;
-    }
+    width: auto !important;
 
     img[class*="wp-image-"] {
         display: block;
     }
 }
 
+.wp-caption.wp-caption {
+    margin-bottom: 0;
+}
+
+/* overqualified selectors for gallery caption
+ * to overwrite editor style
+ */
+
 .wp-caption-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #787878;
     text-align: center;
 }
 
-/**
- * overqualified selectors for gallery caption
- * to overwrite editor style
- */
 .wp-caption-text.wp-caption-text.wp-caption-text,
 .gallery-caption.gallery-caption.gallery-caption {
+    margin-top: 16px;
+    margin-bottom: 28px;
 }
 
-figure {
-    &.aligncenter,
-    &.alignnone {
+.aligncenter,
+.alignnone,
+.alignleft,
+.alignright {
+    display: block;
+    margin-bottom: 20px;
 
+    @include query-above($xsmall) {
+        margin-top: 20px;
     }
 
-    &.aligncenter img {
+    .alignleft,
+    .alignright {
+        float: none;
+        max-width: 100%;
+    }
+}
+
+.alignleft,
+.alignright {
+    .alignleft {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .alignright {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.alignnone,
+.aligncenter {
+    .alignleft,
+    .alignright {
         margin: 0 auto;
     }
+}
 
-    &.alignleft {
-        float: left;
+span.aligncenter,
+span.alignnone {
+    img {
+        margin: 0 auto;
+    }
+}
+
+.aligncenter,
+.alignnone {
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+.alignleft,
+.alignright {
+    // margin-top: 28px;
+    margin-bottom: 28px;
+
+    p + &,
+    p + .mceTemp & {
+        margin-top: 0;
+    }
+}
+
+.alignleft {
+    float: left;
+    margin-right: 18px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 18px;
+}
+
+@include query-above($lap) {
+    .alignleft {
+        margin-right: 28px;
+        margin-left: -120px;
+        max-width: calc(50% + 120px);
     }
 
-    &.alignright {
+    .alignright {
+        max-width: 50%;
         float: right;
+        margin-left: 28px;
     }
 }
 

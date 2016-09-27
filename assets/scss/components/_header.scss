@@ -56,8 +56,9 @@
 	@include query-above($lap) {
 		.header & {
 			padding-top: 2 * map-get($gutter-big, $lap);
-			width: 200%;
-			margin-right: -100%;
+			//@todo bind to JS related class
+			//width: 200%;
+			//margin-right: -100%;
 			padding-left: map-get($gutter-small, $lap);
 			padding-bottom: map-get($gutter-small, $lap);
 		}
@@ -85,16 +86,19 @@
 	margin: 0;
 
 	font-family: "Butler", serif;
-	font-size: 100px;
+	//@todo bind to JS related class
+	//font-size: 100px;
+	font-size: 30px;
 	font-weight: 900;
 	text-transform: none;
 	text-align: center;
 	letter-spacing: 0;
 
-	span {
-		word-break: keep-all;
-		white-space: nowrap;
-	}
+	//@todo bind to JS related class
+	//span {
+	//	word-break: keep-all;
+	//	white-space: nowrap;
+	//}
 }
 
 .archive-title--search {
@@ -111,7 +115,9 @@
 
 	font-family: 'Butler', serif;
 	font-weight: 900;
-	font-size: 180px;
+	//@todo bind to JS related class
+	//font-size: 180px;
+	font-size: 50px;
 	text-transform: none;
 
 	// for when it is hidden via
@@ -133,10 +139,11 @@
 	}
 
 	span {
-		display: inline-block;
-		word-break: keep-all;
-
-		hyphens: none;
+		//@todo bind to JS related class
+		//display: inline-block;
+		//word-break: keep-all;
+        //
+		//hyphens: none;
 
 		@include query-below($lap) {
 			white-space: nowrap;

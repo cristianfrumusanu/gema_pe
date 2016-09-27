@@ -9,9 +9,9 @@
 
 // Grid Wrapper
 .grid {
-
-	opacity: 0;
-	transition: opacity .2s $easeInOutCirc;
+    //@todo bind to JS related class
+	//opacity: 0;
+	//transition: opacity .2s $easeInOutCirc;
 
 	&::before {
 		content: '1 .column balanced';
@@ -98,17 +98,18 @@
 		margin-top: $gutter-big;
 	}
 
-	.column:first-child > .card--portrait,
-	.card--portrait:nth-child(odd) {
-		padding-right: 0;
-		padding-left: $gutter-big - $gutter-small;
-	}
-
-	.column:last-child > .card--portrait,
-	.card--portrait:nth-child(even) {
-		padding-left: 0;
-		padding-right: $gutter-big - $gutter-small;
-	}
+	//@todo bind to JS related class
+	//.column:first-child > .card--portrait,
+	//.card--portrait:nth-child(odd) {
+	//	padding-right: 0;
+	//	padding-left: $gutter-big - $gutter-small;
+	//}
+    //
+	//.column:last-child > .card--portrait,
+	//.card--portrait:nth-child(even) {
+	//	padding-left: 0;
+	//	padding-right: $gutter-big - $gutter-small;
+	//}
 
 	.card--landscape + .card--landscape,
 	.card--portrait + .card--portrait {

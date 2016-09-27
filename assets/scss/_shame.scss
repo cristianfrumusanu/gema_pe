@@ -19,10 +19,11 @@
 	background-color: white;
 }
 
-body {
-	opacity: 0;
-	transition: opacity $transitionDuration $easeInOutQuad;
-}
+//@todo bind to JS related class
+//body {
+//	opacity: 0;
+//	transition: opacity $transitionDuration $easeInOutQuad;
+//}
 
 #main > .grid__item {
 	display: none;

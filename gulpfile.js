@@ -64,37 +64,6 @@ gulp.task('assets/css', function () {
 			.pipe(gulp.dest('./assets/css'));
 });
 
-//gulp.task('styles-and-notify', function () {
-//	return gulp.src(['assets/scss/**/*.scss'])
-//			.pipe(sass({sourcemap: false, style: 'expanded'}))
-//			.pipe(prefix("last 1 version"))
-//			// .pipe(cmq())
-//			.pipe(csscomb())
-//			.pipe(chmod(644))
-//			.pipe(gulp.dest('./'))
-//			.pipe(notify({message: 'Styles task complete'}));
-//	// .pipe(postcss([
-//	//     require('rtlcss')({ /* options */ })
-//	// ]))
-//	// .pipe(rename("rtl.css"))
-//	// .pipe(gulp.dest('./'));
-//});
-//
-//gulp.task('styles', function () {
-//	return gulp.src(['assets/scss/**/*.scss'])
-//		.pipe(sass({sourcemap: false, style: 'expanded'}))
-//		.pipe(prefix("last 1 version"))
-//		// .pipe(cmq())
-//		.pipe(csscomb())
-//		.pipe(chmod(644))
-//        .pipe(gulp.dest('./'))
-//		// .pipe(postcss([
-//		//     require('rtlcss')({ /* options */ })
-//		// ]))
-//		// .pipe(rename("rtl.css"))
-//		// .pipe(gulp.dest('./'));
-//});
-
 // javascript stuff
 gulp.task('scripts', function () {
 	return gulp.src(jsFiles)

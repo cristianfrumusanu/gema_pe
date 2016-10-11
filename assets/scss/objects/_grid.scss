@@ -9,10 +9,6 @@
 
 // Grid Wrapper
 .grid {
-    //@todo bind to JS related class
-	//opacity: 0;
-	//transition: opacity .2s $easeInOutCirc;
-
 	&::before {
 		content: '1 .column balanced';
 		opacity: 0;
@@ -53,6 +49,11 @@
 
 		> * { width: 25% }
 	}
+}
+
+.is--loaded .grid {
+	opacity: 0;
+	transition: opacity .2s $easeInOutCirc;
 }
 
 // Grid Items
@@ -98,18 +99,19 @@
 		margin-top: $gutter-big;
 	}
 
-	//@todo bind to JS related class
-	//.column:first-child > .card--portrait,
-	//.card--portrait:nth-child(odd) {
-	//	padding-right: 0;
-	//	padding-left: $gutter-big - $gutter-small;
-	//}
-    //
-	//.column:last-child > .card--portrait,
-	//.card--portrait:nth-child(even) {
-	//	padding-left: 0;
-	//	padding-right: $gutter-big - $gutter-small;
-	//}
+	.is--loaded {
+		.column:first-child > .card--portrait,
+		.card--portrait:nth-child(odd) {
+			padding-right: 0;
+			padding-left: $gutter-big - $gutter-small;
+		}
+
+		.column:last-child > .card--portrait,
+		.card--portrait:nth-child(even) {
+			padding-left: 0;
+			padding-right: $gutter-big - $gutter-small;
+		}
+	}
 
 	.card--landscape + .card--landscape,
 	.card--portrait + .card--portrait {

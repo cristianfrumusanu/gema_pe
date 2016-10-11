@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	$('html').addClass('js');
+
 	if ( isWekbit ) $body.addClass('is--webkit');
 
 	if ( isIE ) $body.addClass('is--ie'); // IE Edge
@@ -99,6 +101,8 @@ function onLoad() {
 	}
 
 	adjustCardMeta();
+
+	$('html').addClass('is--loaded');
 }
 
 function prepareArchive() {

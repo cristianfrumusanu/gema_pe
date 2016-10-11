@@ -19,11 +19,24 @@
 	background-color: white;
 }
 
-//@todo bind to JS related class
-//body {
-//	opacity: 0;
-//	transition: opacity $transitionDuration $easeInOutQuad;
-//}
+body {
+	transition: opacity $transitionDuration $easeInOutQuad;
+}
+
+@keyframes body-in {
+	0%   { opacity: 0; }
+	90%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+body {
+	animation: body-in 2s;
+}
+
+.js body {
+	opacity: 0;
+	animation: none;
+}
 
 #main > .grid__item {
 	display: none;

@@ -650,16 +650,16 @@ figure {
   .singular .site-title {
     line-height: 1.15; }
 
-.is--loaded .site-title {
+.js .site-title {
   font-size: 180px; }
-  .is--loaded .site-title span {
+  .js .site-title span {
     display: inline-block;
     word-break: keep-all;
     -webkit-hyphens: none;
         -ms-hyphens: none;
             hyphens: none; }
     @media not screen and (min-width: 900px) {
-      .is--loaded .site-title span {
+      .js .site-title span {
         white-space: nowrap; } }
 
 .site-title + .site-description-text {

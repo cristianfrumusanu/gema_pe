@@ -113,7 +113,9 @@ function checkForSmallImageOnSingle() {
 }
 
 function adjustCardMeta() {
-	if ( $body.is('.singular') || windowWidth < 480 ) {
+	if ( $body.is('.singular') ) return;
+
+	if ( windowWidth < 480 ) {
 		$('.card__meta').attr('style', '');
 	} else {
 		$('.card--image').each( function(i, obj) {

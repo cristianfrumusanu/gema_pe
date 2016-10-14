@@ -4563,7 +4563,9 @@
     }
 
     function adjustCardMeta() {
-        if ($body.is('.singular') || windowWidth < 480) {
+        if ($body.is('.singular')) return;
+
+        if (windowWidth < 480) {
             $('.card__meta').attr('style', '');
         } else {
             $('.card--image').each(function(i, obj) {
@@ -4595,11 +4597,14 @@
 
             // Append the new posts to the grid
             // via Salvattore
-            $('.grid').each(function(i, obj) {
-                salvattore.appendElements(obj, $(data.html).filter('.grid__item'));
-                Grid.alignTitles();
-                adjustCardMeta();
-            });
+
+            if (windowWidth > 900) {
+                $('.grid').each(function(i, obj) {
+                    salvattore.appendElements(obj, $(data.html).filter('.grid__item'));
+                    Grid.alignTitles();
+                    adjustCardMeta();
+                });
+            }
 
             // Clean up the duplicate posts that are appended
             // by default by Jetpack's Infinite Scroll to div#main
@@ -4663,9 +4668,13 @@
     function onLoad() {
         placeSidebar();
 
-        HandleSubmenusOnTouch.init();
+        if (windowWidth < 900 && Modernizr.touchevents) {
+            HandleSubmenusOnTouch.init();
+        }
 
-        $('ul.nav-menu').ariaNavigation();
+        if (windowWidth > 900) {
+            $('ul.nav-menu').ariaNavigation();
+        }
 
         $('.grid, .site-header').css('opacity', 1);
 
@@ -4750,12 +4759,13 @@
         placeSidebar();
         Logo.onResize();
 
-        $('.grid').each(function(i, obj) {
-            salvattore.rescanMediaQueries(obj);
-        });
+        if (windowWidth > 900) {
+            $('.grid').each(function(i, obj) {
+                salvattore.rescanMediaQueries(obj);
+            });
+        }
 
         adjustCardMeta();
-
 
         resizing = false;
     }

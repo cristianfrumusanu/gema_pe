@@ -20,11 +20,14 @@ function bindEvents() {
 
 		// Append the new posts to the grid
 		// via Salvattore
-		$('.grid').each(function(i, obj) {
-			salvattore.appendElements(obj, $(data.html).filter('.grid__item'));
-			Grid.alignTitles();
-			adjustCardMeta();
-		});
+
+		if ( windowWidth > 900 ) {
+			$('.grid').each(function(i, obj) {
+				salvattore.appendElements(obj, $(data.html).filter('.grid__item'));
+				Grid.alignTitles();
+				adjustCardMeta();
+			});
+		}
 
 		// Clean up the duplicate posts that are appended
 		// by default by Jetpack's Infinite Scroll to div#main
@@ -88,9 +91,13 @@ function bindEvents() {
 function onLoad() {
 	placeSidebar();
 
-	HandleSubmenusOnTouch.init();
+	if ( windowWidth < 900 && Modernizr.touchevents ) {
+		HandleSubmenusOnTouch.init();
+	}
 
-	$('ul.nav-menu').ariaNavigation();
+	if ( windowWidth > 900 ) {
+		$('ul.nav-menu').ariaNavigation();
+	}
 
 	$('.grid, .site-header').css('opacity', 1);
 
@@ -175,12 +182,13 @@ function onResize() {
 	placeSidebar();
 	Logo.onResize();
 
-	$('.grid').each(function(i, obj) {
-		salvattore.rescanMediaQueries(obj);
-	});
+	if ( windowWidth > 900 ) {
+		$('.grid').each(function(i, obj) {
+			salvattore.rescanMediaQueries(obj);
+		});
+	}
 
 	adjustCardMeta();
-
 
 	resizing = false;
 }
